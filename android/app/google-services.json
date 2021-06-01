@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "356369729785",
+    "project_id": "electronic-journal-b1c34",
+    "storage_bucket": "electronic-journal-b1c34.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356369729785:android:ac912d061f4236b8563a28",
+        "android_client_info": {
+          "package_name": "com.nograve.electronic_journal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356369729785-ma7l5c1uquuknad1bpf2ba1lfcdg8090.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ4m31sfuYe1nHZOOwJYLJKVvlazfaKwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356369729785-ma7l5c1uquuknad1bpf2ba1lfcdg8090.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
