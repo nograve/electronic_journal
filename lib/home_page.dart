@@ -17,15 +17,15 @@ class _HomePageState extends State<HomePage> {
       // Write body here
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.account_box_outlined),
             label: 'Profile',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
           ),
