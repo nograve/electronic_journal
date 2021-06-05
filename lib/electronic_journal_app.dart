@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'home_page.dart';
 
 class ElectronicJournalApp extends StatelessWidget {
+  // const ElectronicJournalApp({Key? key}) : super(key: key);
+
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   @override
