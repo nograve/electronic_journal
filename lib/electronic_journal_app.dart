@@ -20,7 +20,7 @@ class ElectronicJournalApp extends StatelessWidget {
             return HomePage();
           } else if (snapshot.hasError) {
             // Implement error handling
-              return const Text('Error');
+              return const Text('Ошибка');
             } else {
             return Center(
               child: const CircularProgressIndicator(),
