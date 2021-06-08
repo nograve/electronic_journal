@@ -3,9 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'home_page.dart';
 
-class ElectronicJournalApp extends StatelessWidget {
-  ElectronicJournalApp({Key? key}) : super(key: key);
+class ElectronicJournalApp extends StatefulWidget {
+  const ElectronicJournalApp({Key? key}) : super(key: key);
 
+  @override
+  _ElectronicJournalAppState createState() => _ElectronicJournalAppState();
+}
+
+class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   @override
@@ -20,8 +25,8 @@ class ElectronicJournalApp extends StatelessWidget {
             return HomePage();
           } else if (snapshot.hasError) {
             // Implement error handling
-              return const Text('Ошибка');
-            } else {
+            return const Text('Ошибка');
+          } else {
             return Center(
               child: const CircularProgressIndicator(),
             );
@@ -31,3 +36,5 @@ class ElectronicJournalApp extends StatelessWidget {
     );
   }
 }
+
+
