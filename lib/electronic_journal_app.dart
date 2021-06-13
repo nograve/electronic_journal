@@ -25,7 +25,7 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
             return HomePage();
           } else if (snapshot.hasError) {
             // Implement error handling
-            return const Text('Ошибка');
+            return const Text('Помилка');
           } else {
             return Center(
               child: const CircularProgressIndicator(),

@@ -20,22 +20,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Электронный журнал'),
+        title: const Text('Електронний журнал'),
       ),
       // Write body here
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Главная',
+            label: 'Головна',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box_outlined),
-            label: 'Профиль',
+            label: 'Профіль',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Настройки',
+            label: 'Налаштування',
           ),
         ],
         currentIndex: _selectedIndex,
