@@ -1,6 +1,6 @@
 abstract class User {
-  User(this._login, this._password);
+  User(this._email, this._password);
 
-  String _login;
+  String _email;
   String _password;
 }
