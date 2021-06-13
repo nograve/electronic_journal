@@ -1,4 +1,4 @@
-abstract class User{
+abstract class User {
   User(this._login, this._password);
 
   String _login;
