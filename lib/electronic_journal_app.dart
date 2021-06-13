@@ -1,46 +1,27 @@
+import 'package:electronic_journal/authentication_service.dart';
+import 'package:electronic_journal/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 
-class ElectronicJournalApp extends StatefulWidget {
+class ElectronicJournalApp extends StatelessWidget {
   const ElectronicJournalApp({Key? key}) : super(key: key);
 
   @override
-  _ElectronicJournalAppState createState() => _ElectronicJournalAppState();
-}
-
-class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
-  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // Since FirebaseApp is Future we need to resolve it
-      // with FutureBuilder
-      home: FutureBuilder(
-        future: _fbApp,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return AuthenticationWrapper();
-          } else if (snapshot.hasError) {
-            // Implement error handling
-            return const Text('Помилка');
-          } else {
-            return Center(
-              child: const CircularProgressIndicator(),
-            );
-          }
-        },
+    return MultiProvider(providers: [
+      Provider<AuthenticationService>(
+        create: (_) => AuthenticationService(FirebaseAuth.instance),
+      ),
+      StreamProvider(
+          create: (context) => context.read<AuthenticationService>().authStateChanges,
+          initialData: null
+      ),
+    ],
+      child: MaterialApp(
+        home: HomePage(),
       ),
     );
-  }
-}
-
-class AuthenticationWrapper extends StatelessWidget {
-  const AuthenticationWrapper({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
 

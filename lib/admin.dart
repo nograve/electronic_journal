@@ -1,5 +1,5 @@
-import 'package:electronic_journal/user.dart';
+import 'package:electronic_journal/user_account.dart';
 
-class Admin extends User {
+class Admin extends UserAccount {
   Admin(String email, String password) : super(email, password);
 }

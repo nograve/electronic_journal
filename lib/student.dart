@@ -1,8 +1,8 @@
 import 'package:electronic_journal/form_of_education.dart';
 import 'package:electronic_journal/group.dart';
-import 'package:electronic_journal/user.dart';
+import 'package:electronic_journal/user_account.dart';
 
-class Student extends User {
+class Student extends UserAccount {
   Student(String email, String password, this._id, this._surname, this._name,
       this._patronymic, this._userName, this._userSurname, this._formOfEducation,
       this._phoneNumber, this._group, this._yearOfEntering, this._dateOfBirth,
