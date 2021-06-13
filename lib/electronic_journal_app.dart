@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'home_page.dart';
-
 class ElectronicJournalApp extends StatefulWidget {
   const ElectronicJournalApp({Key? key}) : super(key: key);
 
@@ -22,7 +20,7 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
         future: _fbApp,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return HomePage();
+            return AuthenticationWrapper();
           } else if (snapshot.hasError) {
             // Implement error handling
             return const Text('Помилка');
@@ -37,4 +35,12 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
   }
 }
 
+class AuthenticationWrapper extends StatelessWidget {
+  const AuthenticationWrapper({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
 
