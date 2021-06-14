@@ -106,7 +106,9 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                   // confirm button
                   ElevatedButton(
                     onPressed: () {
-                      signIn(email: emailController.text, password: passwordController.text)
+                      signIn(
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim())
                           .then((user) {
                          if (user != null) {
                            setState(() {
