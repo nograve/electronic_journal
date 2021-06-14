@@ -82,6 +82,8 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                 // if Not Signed In - use Authentication Page
             Scaffold(
               body: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // email, implement validator
                   TextFormField(
@@ -110,11 +112,11 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                           email: emailController.text.trim(),
                           password: passwordController.text.trim())
                           .then((user) {
-                         if (user != null) {
-                           setState(() {
-                             _isSignedIn = true;
-                           });
-                         }
+                        if (user != null) {
+                          setState(() {
+                            _isSignedIn = true;
+                          });
+                        }
                       });
                     },
                     child: Text('Увійти'),
