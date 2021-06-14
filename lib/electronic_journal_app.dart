@@ -51,7 +51,12 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                   // Logout button
                   ElevatedButton(
                       onPressed: onLogOut,
-                      child: Text('Вийти'),
+                      child: Column(
+                        children: [
+                          Icon(Icons.login),
+                          Text('Вийти'),
+                        ],
+                      ),
                   ),
                 ],
               ) : _selectedIndex == 1 ? Column(
