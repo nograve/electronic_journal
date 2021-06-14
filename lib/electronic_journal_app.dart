@@ -19,12 +19,23 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      print('TabIndex $_selectedIndex');
     });
   }
 
+  void onLogOut() {
+    logOut().then((user) {
+      if (user == null) {
+        setState(() {
+          _isSignedIn = false;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    // Firebase initialized with FutureBuilder
     return FutureBuilder(
       future: _fbInit,
       builder: (context, snapshot) {
@@ -35,7 +46,19 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
               appBar: AppBar(
                 title: const Text('Електронний журнал'),
               ),
-              // Write body here
+              body: _selectedIndex == 0 ? Column(
+                children: [
+                  // Logout button
+                  ElevatedButton(
+                      onPressed: onLogOut,
+                      child: Text('Вийти'),
+                  ),
+                ],
+              ) : _selectedIndex == 1 ? Column(
+
+              ) : Column(
+
+              ),
               bottomNavigationBar: BottomNavigationBar(
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
