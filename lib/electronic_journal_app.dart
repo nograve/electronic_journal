@@ -1,3 +1,4 @@
+import 'package:electronic_journal/auth_methods.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -59,21 +60,31 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
             Scaffold(
               body: Column(
                 children: [
+                  // email field
                   TextField(
                     controller: emailController,
                     decoration: InputDecoration(
                       labelText: 'Почта',
                     ),
                   ),
+                  // password field
                   TextField(
                     controller: passwordController,
                     decoration: InputDecoration(
                       labelText: 'Пароль',
                     ),
                   ),
+                  // confirm button, implement validators later
                   ElevatedButton(
                     onPressed: () {
-
+                      signIn(email: emailController.text, password: passwordController.text)
+                          .then((user) {
+                         if (user != null) {
+                           setState(() {
+                             _isSignedIn = true;
+                           });
+                         }
+                      });
                     },
                     child: Text('Увійти'),
                   ),
