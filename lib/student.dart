@@ -12,13 +12,11 @@ class Student extends UserAccount {
   int _id;
   String _surname, _name, _patronymic;
   String _userName, _userSurname;
-  // add degree for students here
   FormOfEducation _formOfEducation;
   String _phoneNumber;
   Group _group;
   int _yearOfEntering;
   DateTime _dateOfBirth;
-  // add student status here
   String _providedEmail;
   String _relativeSurname, _relativeName, _relativePatronymic;
   String _relativePhoneNumber;

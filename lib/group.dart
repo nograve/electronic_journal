@@ -3,5 +3,4 @@ class Group {
 
   String _marker;
   int _course, _groupNum;
-  // implement letter after the number later
 }
