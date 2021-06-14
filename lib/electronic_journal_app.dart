@@ -60,21 +60,27 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
             Scaffold(
               body: Column(
                 children: [
-                  // email field
-                  TextField(
+                  // email, implement validator
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.email),
+                      labelText: 'Електронна адреса',
+                      hintText: 'Введіть адрес електронної пошти',
+                    ),
                     controller: emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Почта',
-                    ),
+
                   ),
-                  // password field
-                  TextField(
-                    controller: passwordController,
-                    decoration: InputDecoration(
+                  // password, implement validator
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.lock),
                       labelText: 'Пароль',
+                      hintText: 'Введіть пароль від вашого аккаунта',
                     ),
+                    obscureText: true,
+                    controller: passwordController,
                   ),
-                  // confirm button, implement validators later
+                  // confirm button
                   ElevatedButton(
                     onPressed: () {
                       signIn(email: emailController.text, password: passwordController.text)
