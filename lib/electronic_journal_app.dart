@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:electronic_journal/auth_methods.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,21 @@ class ElectronicJournalApp extends StatefulWidget {
 
 class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
   final Future<FirebaseApp> _fbInit = Firebase.initializeApp();
-  bool _isSignedIn = false;
+
+  // CollectionReferences to reference db from Firestore
+  final CollectionReference _users = FirebaseFirestore.instance.collection('users');
+  final CollectionReference _admins = FirebaseFirestore.instance.collection('admins');
+  final CollectionReference _adminRepresentatives = FirebaseFirestore.instance
+      .collection('admin_representatives');
+  final CollectionReference _teachers = FirebaseFirestore.instance.collection('teachers');
+  final CollectionReference _students = FirebaseFirestore.instance.collection('students');
+  final CollectionReference _degrees = FirebaseFirestore.instance.collection('degrees');
+  final CollectionReference _statuses = FirebaseFirestore.instance.collection('statuses');
+
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool _isSignedIn = false;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
