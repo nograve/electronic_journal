@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:electronic_journal/auth_methods.dart';
+import 'package:electronic_journal/user_type.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +16,10 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
 
   // CollectionReferences to reference db from Firestore
   final CollectionReference _users = FirebaseFirestore.instance.collection('users');
-  final CollectionReference _admins = FirebaseFirestore.instance.collection('admins');
-  final CollectionReference _adminRepresentatives = FirebaseFirestore.instance
-      .collection('admin_representatives');
-  final CollectionReference _teachers = FirebaseFirestore.instance.collection('teachers');
-  final CollectionReference _students = FirebaseFirestore.instance.collection('students');
   final CollectionReference _degrees = FirebaseFirestore.instance.collection('degrees');
   final CollectionReference _statuses = FirebaseFirestore.instance.collection('statuses');
 
+  UserType? _userType;
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -134,6 +131,20 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                           setState(() {
                             _isSignedIn = true;
                           });
+                          _users.where('email', isEqualTo: emailController.text)
+                              .snapshots().listen((data) {
+                            String userRole = data.docs.first['role'];
+                            if (userRole == 'student') {
+                              _userType = UserType.Student;
+                            } else if (userRole == 'teacher') {
+                              _userType = UserType.Teacher;
+                            } else if (userRole == 'admin_representative') {
+                              _userType = UserType.AdminRepresentative;
+                            } else if (userRole == 'admin') {
+                              _userType = UserType.Admin;
+                            }
+                            print('user role is $userRole');
+                          });
                         }
                       });
                     },
@@ -146,7 +157,7 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
         } else if (snapshot.hasError) {
           return Text('Сталася помилка...');
         } else {
-          return Text('Загружую...');
+          return CircularProgressIndicator();
         }
       },
     );
