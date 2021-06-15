@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:electronic_journal/auth_methods.dart';
-import 'package:electronic_journal/create_user_page.dart';
 import 'package:electronic_journal/user_type.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ElectronicJournalApp extends StatefulWidget {
@@ -13,8 +11,6 @@ class ElectronicJournalApp extends StatefulWidget {
 }
 
 class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
-  final Future<FirebaseApp> _fbInit = Firebase.initializeApp();
-
   // CollectionReferences to reference db from Firestore
   final CollectionReference _users = FirebaseFirestore.instance.collection('users');
   final CollectionReference _degrees = FirebaseFirestore.instance.collection('degrees');
@@ -22,8 +18,8 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
 
   UserType? _userType;
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool _isSignedIn = false;
   int _selectedIndex = 0;
 
@@ -66,10 +62,10 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                         ],
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => CreateUserPage()),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => CreateUserPage()),
+                        // );
                       },
                     )
                         : Container(
@@ -88,7 +84,9 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                     ),
                   ],
                 ) : _selectedIndex == 1 ? Column(
-
+                  children: [
+                    Text(_emailController.text)
+                  ],
                 ) : Column(
 
                 ),
@@ -125,7 +123,7 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                         labelText: 'Електронна адреса',
                         hintText: 'Введіть адрес електронної пошти',
                       ),
-                      controller: emailController,
+                      controller: _emailController,
 
                     ),
                     // password, implement validator
@@ -136,19 +134,19 @@ class _ElectronicJournalAppState extends State<ElectronicJournalApp> {
                         hintText: 'Введіть пароль від вашого аккаунта',
                       ),
                       obscureText: true,
-                      controller: passwordController,
+                      controller: _passwordController,
                     ),
                     // confirm button
                     ElevatedButton(
                       onPressed: () {
                         signIn(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim())
+                            email: _emailController.text.trim(),
+                            password: _passwordController.text.trim())
                             .then((user) {
                           if (user != null) {
                             setState(() {
                               _isSignedIn = true;
-                              _users.where('email', isEqualTo: emailController.text)
+                              _users.where('email', isEqualTo: _emailController.text)
                                   .snapshots().listen((data) {
                                 String userRole = data.docs.first['role'];
                                 if (userRole == 'student') {
