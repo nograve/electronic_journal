@@ -1,4 +1,4 @@
-import 'package:electronic_journal/create_user_form.dart';
+import 'package:electronic_journal/forms/create_user_form.dart';
 import 'package:flutter/material.dart';
 
 class CreateUserPage extends StatelessWidget {
