@@ -1,7 +1,7 @@
 import 'package:electronic_journal/user_types/user_account.dart';
 
 class Student extends UserAccount {
-  Student(String email, String password) : super(email, password);
+  Student(String email) : super(email);
 
   // String _surname, _name, _patronymic;
   // String _userName, _userSurname;

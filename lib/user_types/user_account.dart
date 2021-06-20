@@ -1,6 +1,5 @@
 abstract class UserAccount {
-  UserAccount(this._email, this._password);
+  UserAccount(this._email);
 
   String _email;
-  String _password;
 }
