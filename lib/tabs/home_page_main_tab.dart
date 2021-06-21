@@ -1,12 +1,14 @@
 import 'package:electronic_journal/buttons/add_user_button.dart';
 import 'package:electronic_journal/buttons/logout_button.dart';
 import 'package:electronic_journal/buttons/show_students_button.dart';
-import 'package:electronic_journal/electronic_journal_app.dart';
 import 'package:electronic_journal/user_types/user_type.dart';
 import 'package:flutter/material.dart';
 
 class HomePageMainTab extends StatefulWidget {
-  const HomePageMainTab({Key? key}) : super(key: key);
+  const HomePageMainTab(this._userType, this._onLogOut, {Key? key}) : super(key: key);
+
+  final UserType _userType;
+  final Function()? _onLogOut;
 
   @override
   _HomePageMainTabState createState() => _HomePageMainTabState();
@@ -15,7 +17,7 @@ class HomePageMainTab extends StatefulWidget {
 class _HomePageMainTabState extends State<HomePageMainTab> {
   @override
   Widget build(BuildContext context) {
-    switch (userType) {
+    switch (widget._userType) {
     // Create 2 columns for each row widget
 
       case UserType.Student:
@@ -24,7 +26,7 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             Column(
               children: [
                 ShowStudentsButton(),
-                LogOutButton(),
+                LogOutButton(widget._onLogOut),
               ],
             ),
           ],
@@ -36,7 +38,7 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             Column(
               children: [
                 ShowStudentsButton(),
-                LogOutButton(),
+                LogOutButton(widget._onLogOut),
               ],
             ),
           ],
@@ -48,7 +50,7 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             Column(
               children: [
                 ShowStudentsButton(),
-                LogOutButton(),
+                LogOutButton(widget._onLogOut),
               ],
             ),
           ],
@@ -65,7 +67,7 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             ),
             Column(
               children: [
-                LogOutButton(),
+                LogOutButton(widget._onLogOut),
               ],
             )
           ],

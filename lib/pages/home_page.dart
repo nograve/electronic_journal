@@ -1,10 +1,14 @@
 import 'package:electronic_journal/tabs/home_page_account_tab.dart';
 import 'package:electronic_journal/tabs/home_page_main_tab.dart';
 import 'package:electronic_journal/tabs/home_page_settings_tab.dart';
+import 'package:electronic_journal/user_types/user_type.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage(this._userType, this._onLogOut, {Key? key}) : super(key: key);
+
+  final UserType _userType;
+  final Function()? _onLogOut;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -24,7 +28,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _selectedTabIndex == 0 ? HomePageMainTab() :
+      appBar: AppBar(
+        title: const Text('Електронний журнал'),
+      ),
+      body: _selectedTabIndex == 0 ? HomePageMainTab(widget._userType, widget._onLogOut) :
             _selectedTabIndex == 1 ? HomePageAccountTab() :
             _selectedTabIndex == 2 ? HomePageSettingsTab() :
             const Text('Помилка...'),
