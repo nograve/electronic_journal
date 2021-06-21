@@ -49,10 +49,15 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
           children: [
             Row(
               children: [
+                AddUserButton(),
                 ShowStudentsButton(),
-                LogOutButton(widget._onLogOut),
               ],
             ),
+            Row(
+              children: [
+                LogOutButton(widget._onLogOut),
+              ],
+            )
           ],
         );
 
