@@ -1,5 +1,7 @@
 import 'package:electronic_journal/buttons/add_user_button.dart';
 import 'package:electronic_journal/buttons/logout_button.dart';
+import 'package:electronic_journal/buttons/show_disciplines_list_button.dart';
+import 'package:electronic_journal/buttons/show_my_disciplines_button.dart';
 import 'package:electronic_journal/buttons/show_students_button.dart';
 import 'package:electronic_journal/user_types/user_type.dart';
 import 'package:flutter/material.dart';
@@ -25,10 +27,16 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
           children: [
             Row(
               children: [
+                ShowMyDisciplinesButton(),
                 ShowStudentsButton(),
-                LogOutButton(widget._onLogOut),
               ],
             ),
+            Row(
+              children: [
+                ShowDisciplinesListButton(),
+                LogOutButton(widget._onLogOut),
+              ],
+            )
           ],
         );
 
@@ -38,9 +46,15 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             Row(
               children: [
                 ShowStudentsButton(),
-                LogOutButton(widget._onLogOut),
+                ShowStudentsButton(),
               ],
             ),
+            Row(
+              children: [
+                ShowDisciplinesListButton(),
+                LogOutButton(widget._onLogOut),
+              ],
+            )
           ],
         );
 
@@ -55,6 +69,7 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             ),
             Row(
               children: [
+                ShowDisciplinesListButton(),
                 LogOutButton(widget._onLogOut),
               ],
             )
@@ -72,6 +87,7 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             ),
             Row(
               children: [
+                ShowDisciplinesListButton(),
                 LogOutButton(widget._onLogOut),
               ],
             )
