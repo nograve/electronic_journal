@@ -21,9 +21,9 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
     // Create 2 columns for each row widget
 
       case UserType.Student:
-        return Row(
+        return Column(
           children: [
-            Column(
+            Row(
               children: [
                 ShowStudentsButton(),
                 LogOutButton(widget._onLogOut),
@@ -33,9 +33,9 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
         );
 
       case UserType.Teacher:
-        return Row(
+        return Column(
           children: [
-            Column(
+            Row(
               children: [
                 ShowStudentsButton(),
                 LogOutButton(widget._onLogOut),
@@ -45,9 +45,9 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
         );
 
       case UserType.AdminRepresentative:
-        return Row(
+        return Column(
           children: [
-            Column(
+            Row(
               children: [
                 ShowStudentsButton(),
                 LogOutButton(widget._onLogOut),
@@ -57,15 +57,15 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
         );
 
       case UserType.Admin:
-        return Row(
+        return Column(
           children: [
-            Column(
+            Row(
               children: [
                 AddUserButton(),
                 ShowStudentsButton(),
               ],
             ),
-            Column(
+            Row(
               children: [
                 LogOutButton(widget._onLogOut),
               ],
