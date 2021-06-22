@@ -6,4 +6,9 @@ class Admin extends UserAccount {
   String _email;
 
   String get email => _email;
+
+  @override
+  String toString() {
+    return 'email: $_email';
+  }
 }

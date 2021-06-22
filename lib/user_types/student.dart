@@ -9,6 +9,7 @@ class Student extends UserAccount {
       this._providedEmail, this._relativeSurname, this._relativeName, this._relativePatronymic,
       this._relativePhoneNumber) : super(email);
 
+
   String _surname, _name, _patronymic;
   String _userName, _userSurname;
   FormOfEducation _formOfEducation;
@@ -39,4 +40,24 @@ class Student extends UserAccount {
   String get relativeName => _relativeName;
   String get relativePatronymic => _relativePatronymic;
   String get relativePhoneNumber => _relativePhoneNumber;
+
+  String formOfEducationStr() {
+    switch (_formOfEducation) {
+      case FormOfEducation.FeeBased:
+        return 'Контракт';
+      case FormOfEducation.StateFunded:
+        return 'Бюджет';
+    }
+  }
+
+  @override
+  String toString() {
+    return '''
+    $_userName $_userSurname
+    
+    email: $email
+    ПІБ студента: $_patronymic $_name $_surname
+    
+    ''';
+  }
 }

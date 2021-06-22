@@ -9,7 +9,7 @@ class ShowMyDisciplinesButton extends StatelessWidget {
       onPressed: () {},
       child: Column(
         children: [
-          Icon(Icons.list),
+          Icon(Icons.book),
           Text('Мої предмети'),
         ],
       ),

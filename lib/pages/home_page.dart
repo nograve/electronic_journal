@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Електронний журнал'),
       ),
       body: _selectedTabIndex == 0 ? HomePageMainTab(widget._userType, widget._onLogOut) :
-            _selectedTabIndex == 1 ? HomePageAccountTab() :
+            _selectedTabIndex == 1 ? HomePageAccountTab(widget._userType) :
             _selectedTabIndex == 2 ? HomePageSettingsTab() :
             const Text('Помилка...'),
       bottomNavigationBar: BottomNavigationBar(
