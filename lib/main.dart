@@ -8,5 +8,5 @@ Future<void> main() async {
   // Connecting to Firebase
   await Firebase.initializeApp();
 
-  runApp(ElectronicJournalApp());
+  runApp(const ElectronicJournalApp());
 }

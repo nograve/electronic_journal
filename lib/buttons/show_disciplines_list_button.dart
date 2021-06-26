@@ -8,7 +8,7 @@ class ShowDisciplinesListButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {},
         child: Column(
-          children: [
+          children: const [
             Icon(Icons.list),
             Text('Список дисциплін'),
           ],

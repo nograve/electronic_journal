@@ -3,25 +3,25 @@ import 'package:electronic_journal/data_types/group.dart';
 import 'package:electronic_journal/user_types/user_account.dart';
 
 class Student extends UserAccount {
-  Student(String email, this._surname, this._name, this._patronymic, this._userName,
+  Student(this._email, this._surname, this._name, this._patronymic, this._userName,
       this._userSurname, this._formOfEducation, this._status, this._educationalLevel,
       this._phoneNumber, this._group, this._yearOfEntering, this._dateOfBirth,
       this._providedEmail, this._relativeSurname, this._relativeName, this._relativePatronymic,
-      this._relativePhoneNumber) : super(email);
+      this._relativePhoneNumber) : super(_email);
 
-
-  String _surname, _name, _patronymic;
-  String _userName, _userSurname;
-  FormOfEducation _formOfEducation;
-  String _status;
-  String _educationalLevel;
-  String _phoneNumber;
-  Group _group;
-  int _yearOfEntering;
-  DateTime _dateOfBirth;
-  String _providedEmail;
-  String _relativeSurname, _relativeName, _relativePatronymic;
-  String _relativePhoneNumber;
+  final String _email;
+  final String _surname, _name, _patronymic;
+  final String _userName, _userSurname;
+  final FormOfEducation _formOfEducation;
+  final String _status;
+  final String _educationalLevel;
+  final String _phoneNumber;
+  final Group _group;
+  final int _yearOfEntering;
+  final DateTime _dateOfBirth;
+  final String _providedEmail;
+  final String _relativeSurname, _relativeName, _relativePatronymic;
+  final String _relativePhoneNumber;
 
   String get surname => _surname;
   String get name => _name;
@@ -43,21 +43,15 @@ class Student extends UserAccount {
 
   String formOfEducationStr() {
     switch (_formOfEducation) {
-      case FormOfEducation.FeeBased:
+      case FormOfEducation.feeBased:
         return 'Контракт';
-      case FormOfEducation.StateFunded:
+      case FormOfEducation.stateFunded:
         return 'Бюджет';
     }
   }
 
   @override
   String toString() {
-    return '''
-    $_userName $_userSurname
-    
-    email: $email
-    ПІБ студента: $_patronymic $_name $_surname
-    
-    ''';
+    return 'email: $_email';
   }
 }

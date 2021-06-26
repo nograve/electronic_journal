@@ -22,25 +22,25 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
     switch (widget._userType) {
     // Create 2 columns for each row widget
 
-      case UserType.Student:
+      case UserType.student:
         return Column(
           children: [
             Row(
               children: [
-                ShowMyDisciplinesButton(),
+                const ShowMyDisciplinesButton(),
                 ShowStudentsButton(),
               ],
             ),
             Row(
               children: [
-                ShowDisciplinesListButton(),
+                const ShowDisciplinesListButton(),
                 LogOutButton(widget._onLogOut),
               ],
             )
           ],
         );
 
-      case UserType.Teacher:
+      case UserType.teacher:
         return Column(
           children: [
             Row(
@@ -51,43 +51,43 @@ class _HomePageMainTabState extends State<HomePageMainTab> {
             ),
             Row(
               children: [
-                ShowDisciplinesListButton(),
+                const ShowDisciplinesListButton(),
                 LogOutButton(widget._onLogOut),
               ],
             )
           ],
         );
 
-      case UserType.AdminRepresentative:
+      case UserType.adminRepresentative:
         return Column(
           children: [
             Row(
               children: [
-                AddUserButton(),
+                const AddUserButton(),
                 ShowStudentsButton(),
               ],
             ),
             Row(
               children: [
-                ShowDisciplinesListButton(),
+                const ShowDisciplinesListButton(),
                 LogOutButton(widget._onLogOut),
               ],
             )
           ],
         );
 
-      case UserType.Admin:
+      case UserType.admin:
         return Column(
           children: [
             Row(
               children: [
-                AddUserButton(),
+                const AddUserButton(),
                 ShowStudentsButton(),
               ],
             ),
             Row(
               children: [
-                ShowDisciplinesListButton(),
+                const ShowDisciplinesListButton(),
                 LogOutButton(widget._onLogOut),
               ],
             )

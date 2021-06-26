@@ -1,49 +1,49 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 Future<User?> createAccount({required String email, required String password}) async {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   try {
-    User? user = (await _auth.createUserWithEmailAndPassword(email: email, password: password)).user;
+    final User? user = (await _auth.createUserWithEmailAndPassword(email: email, password: password)).user;
 
     if (user != null) {
-      print('Registration Successful');
+      // print('Registration Successful');
       return user;
     } else {
-      print('Registration Failed');
+      // print('Registration Failed');
       return user;
     }
   } catch (e) {
-    print(e);
+    // print(e);
     return null;
   }
 }
 
 Future<User?> signIn({required String email, required String password}) async {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   try {
-    User? user = (await _auth.signInWithEmailAndPassword(email: email, password: password)).user;
+    final User? user = (await _auth.signInWithEmailAndPassword(email: email, password: password)).user;
 
     if (user != null) {
-      print('Login Successful');
+      // print('Login Successful');
       return user;
     } else {
-      print('Login Failed');
+      // print('Login Failed');
       return user;
     }
   } catch (e) {
-    print(e);
+    // print(e);
     return null;
   }
 }
 
 Future<User?> logOut() async {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   try {
     await _auth.signOut();
   } catch (e) {
-    print(e);
+    // print(e);
   }
 }

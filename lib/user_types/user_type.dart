@@ -1,6 +1,6 @@
 enum UserType {
-  Admin,
-  AdminRepresentative,
-  Teacher,
-  Student,
+  admin,
+  adminRepresentative,
+  teacher,
+  student,
 }

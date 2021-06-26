@@ -16,7 +16,7 @@ class _LogOutButtonState extends State<LogOutButton> {
     return ElevatedButton(
       onPressed: widget._onLogOut,
       child: Column(
-        children: [
+        children: const [
           Icon(Icons.login),
           Text('Вийти'),
         ],

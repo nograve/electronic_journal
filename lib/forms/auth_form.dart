@@ -14,7 +14,7 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
 
-  UserType? _userType;
+  late UserType _userType;
   final CollectionReference _users = FirebaseFirestore.instance.collection('users');
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -23,7 +23,6 @@ class _AuthFormState extends State<AuthForm> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // email, implement validator
         TextFormField(
@@ -55,22 +54,22 @@ class _AuthFormState extends State<AuthForm> {
               if (user != null) {
                 _users.where('email', isEqualTo: _emailController.text)
                     .snapshots().listen((data) {
-                      String userRole = data.docs.first['role'];
+                      final String userRole = data.docs.first['role'].toString();
                       if (userRole == 'student') {
-                        _userType = UserType.Student;
+                        _userType = UserType.student;
                       } else if (userRole == 'teacher') {
-                        _userType = UserType.Teacher;
+                        _userType = UserType.teacher;
                       } else if (userRole == 'admin_representative') {
-                        _userType = UserType.AdminRepresentative;
+                        _userType = UserType.adminRepresentative;
                       } else if (userRole == 'admin') {
-                        _userType = UserType.Admin;
+                        _userType = UserType.admin;
                       }
-                      widget._onSignIn(_userType!);
+                      widget._onSignIn(_userType);
                     });
               }
                 });
             },
-          child: Text('Увійти'),
+          child: const Text('Увійти'),
         ),
       ],
     );

@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedTabIndex = index;
     });
-    print('TabIndex $_selectedTabIndex');
+    // print('TabIndex $_selectedTabIndex');
   }
 
 
@@ -32,8 +32,8 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Електронний журнал'),
       ),
       body: _selectedTabIndex == 0 ? HomePageMainTab(widget._userType, widget._onLogOut) :
-            _selectedTabIndex == 1 ? HomePageAccountTab(widget._userType) :
-            _selectedTabIndex == 2 ? HomePageSettingsTab() :
+            _selectedTabIndex == 1 ? const HomePageAccountTab() :
+            _selectedTabIndex == 2 ? const HomePageSettingsTab() :
             const Text('Помилка...'),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

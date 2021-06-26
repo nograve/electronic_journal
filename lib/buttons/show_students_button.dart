@@ -9,12 +9,6 @@ class ShowStudentsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: Column(
-        children: [
-          Icon(Icons.account_box),
-          Text('Список студентів'),
-        ],
-      ),
       onPressed: () {
         // create page for showing students list
         Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -27,13 +21,19 @@ class ShowStudentsButton extends StatelessWidget {
                     children: snapshot.data!.docs.map((e) => ListTile(title: Text(e.toString()),)).toList(),
                   );
                 }
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               },
             ),
           );
         }),
         );
       },
+      child: Column(
+        children: const [
+          Icon(Icons.account_box),
+          Text('Список студентів'),
+        ],
+      ),
     );
   }
 }

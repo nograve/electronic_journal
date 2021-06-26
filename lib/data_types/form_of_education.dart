@@ -1,4 +1,4 @@
 enum FormOfEducation {
-  StateFunded,
-  FeeBased,
+  stateFunded,
+  feeBased,
 }

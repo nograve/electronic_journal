@@ -17,7 +17,6 @@ class _CreateUserFormState extends State<CreateUserForm> {
       key: _formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           DropdownButton(
             value: _dropdownValue,

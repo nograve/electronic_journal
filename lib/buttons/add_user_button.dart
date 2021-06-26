@@ -6,18 +6,18 @@ class AddUserButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: Column(
-        children: [
-          Icon(Icons.add),
-          Text('Додати користувача'),
-        ],
-      ),
       onPressed: () {
         // Navigator.push(
         //   context,
         //   MaterialPageRoute(builder: (context) => CreateUserPage()),
         // );
       },
+      child: Column(
+        children: const [
+          Icon(Icons.add),
+          Text('Додати користувача'),
+        ],
+      ),
     );
   }
 }
